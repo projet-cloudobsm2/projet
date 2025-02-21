@@ -1,0 +1,22 @@
+image:
+  repository: my-mysql-image
+  tag: latest
+  pullPolicy: Never
+
+service:
+  type: ClusterIP
+  port: 1433
+
+env:
+  ACCEPT_EULA: "Y"
+
+secrets:
+  saPassword: "Pass@word"
+
+resources:
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
