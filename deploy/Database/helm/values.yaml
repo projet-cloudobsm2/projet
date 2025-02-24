@@ -1,5 +1,5 @@
 image:
-  repository: my-mysql-image
+  repository: projet-sql
   tag: latest
   pullPolicy: Never
 

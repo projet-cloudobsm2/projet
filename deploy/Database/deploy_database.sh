@@ -1,1 +1,1 @@
-helm install mysql-server ./helm/
+helm install projet-sql ./helm/
