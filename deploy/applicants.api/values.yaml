@@ -1,0 +1,21 @@
+image:
+  repository: lamisb7
+  name: cloudobsm2
+  tag: applicants_api-latest
+
+service:
+  type: ClusterIP
+  protocol: TCP
+  port: 8081
+
+env:
+  CONNECTION_STRING: "Server=sql.data;User=sa;Password=Pass@word;Database=dotnetgigs.applicants"
+  HOST_RABBITMQ: "rabbitmq"
+
+resources:
+  limits:
+    cpu: "1"
+    memory: "1500Mi"
+  requests:
+    cpu: "0.5"
+    memory: "500Mi"

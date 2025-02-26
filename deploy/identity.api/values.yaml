@@ -1,0 +1,21 @@
+image:
+  repository: lamisb7
+  name: cloudobsm2
+  tag: identity_api-latest
+
+service:
+  type: ClusterIP
+  protocol: TCP
+  port: 8084
+
+env:
+  REDIS_HOST: "user-data:6379"
+  HOST_RABBITMQ: "rabbitmq"
+
+resources:
+  limits:
+    cpu: "1"
+    memory: "1500Mi"
+  requests:
+    cpu: "0.5"
+    memory: "500Mi"
