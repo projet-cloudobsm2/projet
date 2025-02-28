@@ -1,5 +1,5 @@
 apiVersion: v2
-name: mysql-server
+name: sql-data
 description: A Helm chart to deploy a MySQL Server container with configurable environment variables
 type: application
 version: 0.1.0

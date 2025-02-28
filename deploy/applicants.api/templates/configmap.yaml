@@ -4,4 +4,4 @@ metadata:
   name: {{ .Chart.Name }}-config
 data:
   CONNECTION_STRING: "{{ .Values.env.CONNECTION_STRING }}"
-  HOST_RABBITMQ: "{{ .Values.env.HOST_RABBITMQ }}"
+  HostRabbitmq: "{{ .Values.env.HostRabbitmq }}"

@@ -1,5 +1,6 @@
 image:
-  repository: projet-sql
+  repository: 
+  name: mssql_database
   tag: latest
   pullPolicy: Never
 

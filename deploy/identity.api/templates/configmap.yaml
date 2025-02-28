@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: {{ .Chart.Name }}-config
 data:
-  REDIS_HOST: "{{ .Values.env.REDIS_HOST }}"
-  HOST_RABBITMQ: "{{ .Values.env.HOST_RABBITMQ }}"
+  RedisHost: "{{ .Values.env.RedisHost }}"
+  HostRabbitmq: "{{ .Values.env.HostRabbitmq }}"

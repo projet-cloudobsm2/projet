@@ -1,16 +1,7 @@
-image:
-  repository: 
-  name: identity.api
-  tag: latest
-
 service:
   type: ClusterIP
   protocol: TCP
-  port: 8084
-
-env:
-  RedisHost: "user-data:6379"
-  HostRabbitmq: "rabbitmq"
+  port: 6379
 
 resources:
   limits:

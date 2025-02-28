@@ -1,22 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}-mysql
-  labels:
-    app: mysql
+  name: {{ .Chart.Name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: mysql
+      app: {{ .Chart.Name }}
   template:
     metadata:
       labels:
-        app: mysql
+        app: {{ .Chart.Name }}
     spec:
       containers:
-        - name: mysql
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        - name: {{ .Chart.Name }}
+          image:  "{{ .Values.image.repository }}/{{ .Values.image.name }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           env:
             - name: ACCEPT_EULA
@@ -24,7 +22,7 @@ spec:
             - name: SA_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ .Release.Name }}-mysql-secret
+                  name: {{ .Chart.Name }}-secret
                   key: saPassword
           volumeMounts:
             - name: sql-script
@@ -33,4 +31,4 @@ spec:
       volumes:
         - name: sql-script
           configMap:
-            name: {{ .Release.Name }}-mysql-config
+            name: {{ .Chart.Name }}-config

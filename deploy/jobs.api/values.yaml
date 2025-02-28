@@ -1,7 +1,7 @@
 image:
-  repository: lamisb7
-  name: cloudobsm2
-  tag: jobs_api-latest
+  repository: 
+  name: jobs_api
+  tag: latest
   
 
 service:
@@ -10,8 +10,8 @@ service:
   port: 8083
 
 env:
-  CONNECTION_STRING: "Server=sql.data;User=sa;Password=Pass@word;Database=dotnetgigs.jobs"
-  HOST_RABBITMQ: "rabbitmq"
+  CONNECTION_STRING: "Server=sql-data;User=sa;Password=Pass@word;Database=dotnetgigs.jobs"
+  HostRabbitmq: "rabbitmq"
 
 resources:
   limits:
