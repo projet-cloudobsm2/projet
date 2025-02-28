@@ -1,4 +1,4 @@
-﻿namespace Web.Config
+namespace Web.Config
 {
     public class ApiConfig
     {

@@ -1,4 +1,4 @@
-﻿namespace Web.ViewModels.JobsViewModels
+namespace Web.ViewModels.JobsViewModels
 {
     public class JobApplicationViewModel
     {
