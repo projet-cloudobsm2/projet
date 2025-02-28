@@ -1,0 +1,1 @@
+helm install my-tls-secret-release tls-secret-chart
