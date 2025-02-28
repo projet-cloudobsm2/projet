@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: {{ .Chart.Name }}
+  ports:
+    - name: amqp
+      protocol: {{ .Values.service.protocol }}
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.port }}
+    - name: management
+      protocol: {{ .Values.service.protocol }}
+      port: {{ .Values.service.managementPort }}
+      targetPort: {{ .Values.service.managementPort }}

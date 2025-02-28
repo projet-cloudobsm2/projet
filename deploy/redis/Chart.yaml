@@ -1,0 +1,5 @@
+apiVersion: v2
+name: user-data
+description: Chart Helm pour le redis
+version: 0.1.0
+appVersion: "1.16.0"
