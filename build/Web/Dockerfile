@@ -1,22 +1,18 @@
-﻿FROM mcr.microsoft.com/dotnet/core/aspnet:2.1-stretch-slim AS base
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build-env
 WORKDIR /app
-EXPOSE 80
-EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
-WORKDIR /src
-COPY "Web" "Web/"
-COPY "Foundation/Http" "Foundation/Http/"
+COPY *.csproj ./
+RUN dotnet restore
 
-RUN dotnet restore "Web/Web.csproj"
-COPY . .
-WORKDIR "/src/Web"
-RUN dotnet build "Web.csproj" -c Release -o /app/build
+COPY . .  
+RUN dotnet publish -c Release -o out
 
-FROM build AS publish
-RUN dotnet publish "Web.csproj" -c Release -o /app/publish
-
-FROM base AS final
+FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Web.dll"]
+
+COPY --from=build-env /app/out .
+
+EXPOSE 5000
+ENV ASPNETCORE_URLS http://+:5000
+
+CMD ["dotnet", "Web.dll"]

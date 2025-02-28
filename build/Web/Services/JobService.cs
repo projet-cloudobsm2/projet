@@ -1,43 +1,29 @@
-﻿
-
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using Http;
-using Newtonsoft.Json;
-using Web.Config;
-using Web.ViewModels;
+using Web.Models;
 
 namespace Web.Services
 {
     public class JobService : IJobService
     {
-        private readonly IHttpClient _apiClient;
-        private readonly ApiConfig _apiConfig;
+        private readonly List<Job> _jobs = new();
+        private readonly List<JobApplicant> _jobApplicants = new();
 
-        public JobService(IHttpClient httpClient, ApiConfig apiConfig)
+        public async Task<IEnumerable<Job>> GetJobsAsync()
         {
-            _apiClient = httpClient;
-            _apiConfig = apiConfig;
+            return await Task.FromResult(_jobs);
         }
 
-        public async Task<IEnumerable<Job>> GetJobs()
+        public async Task<Job?> GetJobAsync(int jobId)
         {
-            var dataString = await _apiClient.GetStringAsync(_apiConfig.JobsApiUrl+"/api/jobs");
-            return JsonConvert.DeserializeObject<IEnumerable<Job>>(dataString);
+            return await Task.FromResult(_jobs.FirstOrDefault(job => job.JobId == jobId));
         }
 
-        public async Task<Job> GetJob(int jobId)
+        public async Task AddApplicantAsync(JobApplicant applicant)
         {
-            var dataString = await _apiClient.GetStringAsync(_apiConfig.JobsApiUrl + "/api/jobs/"+jobId);
-            return JsonConvert.DeserializeObject<Job>(dataString);
-        }
-
-        public async Task AddApplicant(JobApplicant jobApplicant)
-        {
-            var response = await _apiClient.PostAsync(_apiConfig.JobsApiUrl + "/api/jobs/applicants",jobApplicant);
-            response.EnsureSuccessStatusCode();
+            _jobApplicants.Add(applicant);
+            await Task.CompletedTask;
         }
     }
 }
-
- 

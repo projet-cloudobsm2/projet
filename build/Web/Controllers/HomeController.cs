@@ -1,9 +1,8 @@
-﻿ 
-using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Web.Models;
 using Web.Services;
+using Web.ViewModels;
 using Web.ViewModels.HomeViewModels;
 
 namespace Web.Controllers
@@ -11,36 +10,40 @@ namespace Web.Controllers
     public class HomeController : Controller
     {
         private readonly IJobService _jobService;
- 
 
         public HomeController(IJobService jobService)
         {
             _jobService = jobService;
-         
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(new IndexViewModel { Jobs = await _jobService.GetJobs() });
+            var jobs = await _jobService.GetJobsAsync();
+
+            var viewModel = new IndexViewModel
+            {
+                Jobs = jobs.Select(job => new Web.ViewModels.Job
+                {
+                    JobId = job.JobId,
+                    Title = job.Title,
+                    Description = job.Description,
+                    Company = job.Company,
+                    Location = job.Location,
+                    PostedDate = job.PostedDate
+                }).ToList()
+            };
+
+            return View(viewModel);
         }
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
         public IActionResult Contact()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
-        }
-
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

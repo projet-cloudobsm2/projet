@@ -1,41 +1,32 @@
-﻿
-using System;
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
-using Http;
-using Newtonsoft.Json;
-using Web.Config;
 using Web.ViewModels;
 
 namespace Web.Services
 {
     public class IdentityService : IIdentityService
     {
-        private readonly IHttpClient _apiClient;
-        private readonly ApiConfig _apiConfig;
-        private const string BasePath= "/api/users";
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public IdentityService(IHttpClient httpClient, ApiConfig apiConfig)
+        public IdentityService(IHttpContextAccessor httpContextAccessor)
         {
-            _apiClient = httpClient;
-            _apiConfig = apiConfig;
+            _httpContextAccessor = httpContextAccessor;
         }
 
-        public async Task UpdateUserAsync(User user)
+        public string GetUserId()
         {
-            var response = await _apiClient.PostAsync(_apiConfig.IdentityApiUrl+BasePath, user);
-            response.EnsureSuccessStatusCode();
-        }
-
-        public async Task<User> GetUserAsync(string userId)
-        {
-            var dataString = await _apiClient.GetStringAsync(_apiConfig.IdentityApiUrl+ BasePath + "/" + userId);
-            return JsonConvert.DeserializeObject<User>(dataString);
+            return _httpContextAccessor.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
         }
 
         public async Task<long> GetUserApplicationCountAsync(string userId)
         {
-            var dataString = await _apiClient.GetStringAsync(_apiConfig.IdentityApiUrl + BasePath + "/applicationcount/" + userId);
-            return Convert.ToInt64(dataString);
+            return await Task.FromResult(5);
+        }
+
+        public async Task<User?> GetUserAsync(string userId)
+        {
+            return await Task.FromResult(new User { Id = userId, Name = "Test User", Email = "test@example.com" });
         }
     }
 }
