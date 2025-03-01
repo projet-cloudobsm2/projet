@@ -1,0 +1,10 @@
+kubeControllerManager:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeScheduler:
+  enabled: false
+alertmanager:
+  enabled: false
+grafana:
+  enabled: false

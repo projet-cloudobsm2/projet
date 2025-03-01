@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "8tpA0zWxak9Z9/iO+VIyrlPrTR7Do9SSDXiWCMoMj4a36eJBj70Gs1eqH00TtSeW9GDMZq/Cud+NPaTRjcXp8Q==",
+  "success": true,
+  "projectFilePath": "/Users/gregoire/Desktop/Dossier ytrack/Conteneurisation/final/projet/build/Foundation/Events/Events.csproj",
+  "expectedPackageFiles": [
+    "/Users/gregoire/.nuget/packages/microsoft.netcore.app/2.0.0/microsoft.netcore.app.2.0.0.nupkg.sha512",
+    "/Users/gregoire/.nuget/packages/microsoft.netcore.dotnetapphost/2.0.0/microsoft.netcore.dotnetapphost.2.0.0.nupkg.sha512",
+    "/Users/gregoire/.nuget/packages/microsoft.netcore.dotnethostpolicy/2.0.0/microsoft.netcore.dotnethostpolicy.2.0.0.nupkg.sha512",
+    "/Users/gregoire/.nuget/packages/microsoft.netcore.dotnethostresolver/2.0.0/microsoft.netcore.dotnethostresolver.2.0.0.nupkg.sha512",
+    "/Users/gregoire/.nuget/packages/microsoft.netcore.platforms/2.0.0/microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "/Users/gregoire/.nuget/packages/netstandard.library/2.0.0/netstandard.library.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
