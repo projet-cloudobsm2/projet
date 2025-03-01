@@ -6,6 +6,6 @@ namespace Web.ViewModels.HomeViewModels
 {
     public class IndexViewModel
     {
-        public List<Job> Jobs { get; set; } = new List<Job>();
+        public IEnumerable<Job> Jobs { get; set; }
     }
 }

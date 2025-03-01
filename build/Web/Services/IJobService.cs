@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿ 
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Web.Models;
+using Web.ViewModels;
 
 namespace Web.Services
 {
     public interface IJobService
     {
-        Task<IEnumerable<Job>> GetJobsAsync();
-        Task<Job?> GetJobAsync(int jobId);
-        Task AddApplicantAsync(JobApplicant applicant);
+        Task<IEnumerable<Job>> GetJobs();
+        Task<Job> GetJob(int jobId);
+        Task AddApplicant(JobApplicant jobApplicant);
     }
 }
