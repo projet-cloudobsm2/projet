@@ -1,6 +1,6 @@
 image:
-  repository: 
-  name: applicants.api
+  repository: projetcloudobsm2
+  name: applicants_api
   tag: latest
 
 service:

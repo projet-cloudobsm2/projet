@@ -1,6 +1,6 @@
 image:
-  repository: 
-  name: identity.api
+  repository: projetcloudobsm2
+  name: identity_api
   tag: latest
 
 service:
