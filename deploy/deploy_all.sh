@@ -8,7 +8,7 @@ sh "$SCRIPT_DIR/Database/deploy_database.sh"
 
 helm upgrade --install helm-redis "$SCRIPT_DIR/redis"
 
-helm upgrade --install helm-tls "$SCRIPT_DIR/tls-secret-chart"
+helm upgrade --install helm-tls "$SCRIPT_DIR/tls-secret-chart" # Install the auto-signed certificate
 
 helm upgrade --install helm-rabbitmq "$SCRIPT_DIR/rabbitmq"
 
