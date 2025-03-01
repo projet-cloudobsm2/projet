@@ -28,6 +28,8 @@ spec:
             - name: sql-script
               mountPath: /SqlCmdScript.sql
               subPath: SqlCmdScript.sql
+      imagePullSecrets:
+        - name: regcred
       volumes:
         - name: sql-script
           configMap:
