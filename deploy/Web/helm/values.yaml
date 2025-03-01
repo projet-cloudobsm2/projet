@@ -4,9 +4,9 @@ image:
   tag: latest
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   protocol: TCP
-  port: 5000
+  port: 80
 
 resources:
   limits:

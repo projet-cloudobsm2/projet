@@ -1,5 +1,5 @@
 apiVersion: v2
-name: identity-api
+name: service-api-identity
 description: Chart Helm pour déployer l'API identity
 version: 0.1.0
 appVersion: "1.16.0"
