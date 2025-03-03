@@ -7,7 +7,7 @@ image:
 service:
   type: ClusterIP
   protocol: TCP
-  port: 8083
+  port: 80
 
 env:
   CONNECTION_STRING: "Server=sql-data;User=sa;Password=Pass@word;Database=dotnetgigs.jobs"

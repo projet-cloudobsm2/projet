@@ -2,7 +2,7 @@ SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 
 helm upgrade --install helm-web "$SCRIPT_DIR/Web/helm"
 
-helm upgrade --install prometheus prometheus-community/kube-prometheus-stack --version 69.4.1 -n kube-system -f "$SCRIPT_DIR/Prometheus/values.yaml"
+helm install prometheus prometheus-community/kube-prometheus-stack --version 69.4.1 -n kube-system -f "$SCRIPT_DIR/Prometheus/values.yaml"
 
 sh "$SCRIPT_DIR/Database/deploy_database.sh"
 

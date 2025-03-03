@@ -6,7 +6,7 @@ image:
 service:
   type: ClusterIP
   protocol: TCP
-  port: 8084
+  port: 80
 
 env:
   RedisHost: "user-data:6379"
