@@ -1,0 +1,17 @@
+image:
+  repository: projetcloudobsm2
+  name: web
+  tag: latest
+
+service:
+  type: ClusterIP
+  protocol: TCP
+  port: 80
+
+resources:
+  limits:
+    cpu: "1"
+    memory: "2000Mi"
+  requests:
+    cpu: "0.5"
+    memory: "500Mi"

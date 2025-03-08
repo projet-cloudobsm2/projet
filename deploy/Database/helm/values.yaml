@@ -1,0 +1,25 @@
+image:
+  repository: projetcloudobsm2
+  name: postgres
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 1433
+
+env:
+  ACCEPT_EULA: "Y"
+
+secrets:
+  saPassword: "Pass@word"
+
+volumes:
+  - name: sql-script
+    configMap:
+      name: sql-script
+
+volumeMounts:
+  - mountPath: "/SqlCmdScript.sql"
+    subPath: "SqlCmdScript.sql"
+    name: sql-script

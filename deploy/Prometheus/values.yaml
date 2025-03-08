@@ -1,0 +1,15 @@
+kubeControllerManager:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeScheduler:
+  enabled: false
+alertmanager:
+  enabled: false
+grafana:
+  enabled: false
+
+prometheus:
+  prometheusSpec:
+    routePrefix: /prometheus
+    externalUrl: http://prometheus-kube-prometheus-prometheus.kube-system.svc.cluster.local/prometheus

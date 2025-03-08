@@ -1,0 +1,21 @@
+image:
+  repository: projetcloudobsm2
+  name: applicants_api
+  tag: latest
+
+service:
+  type: ClusterIP
+  protocol: TCP
+  port: 80
+
+env:
+  ConnectionString: "Server=sql-data;User=sa;Password=Pass@word;Database=dotnetgigs.applicants"
+  HostRabbitmq: "rabbitmq"
+
+resources:
+  limits:
+    cpu: "1"
+    memory: "1500Mi"
+  requests:
+    cpu: "0.5"
+    memory: "500Mi"
