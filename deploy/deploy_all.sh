@@ -17,3 +17,5 @@ helm upgrade --install helm-jobs "$SCRIPT_DIR/jobs.api"
 helm upgrade --install helm-identity "$SCRIPT_DIR/identity.api"
 
 helm upgrade --install helm-applicants "$SCRIPT_DIR/applicants.api"
+
+helm upgrade --install helm-nginx "$SCRIPT_DIR/Nginx"
