@@ -2,7 +2,7 @@ image:
   repository: projetcloudobsm2
   name: postgres
   tag: latest
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
 
 service:
   type: ClusterIP
