@@ -4,7 +4,7 @@ image:
   tag: latest
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   protocol: TCP
   port: 80
 
