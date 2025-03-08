@@ -5,12 +5,12 @@ image:
   
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
   protocol: TCP
   port: 80
 
 env:
-  CONNECTION_STRING: "Server=sql-data;User=sa;Password=Pass@word;Database=dotnetgigs.jobs"
+  ConnectionString: "Server=sql-data;User=sa;Password=Pass@word;Database=dotnetgigs.jobs"
   HostRabbitmq: "rabbitmq"
 
 resources:

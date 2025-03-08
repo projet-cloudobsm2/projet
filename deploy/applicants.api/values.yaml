@@ -9,7 +9,7 @@ service:
   port: 80
 
 env:
-  CONNECTION_STRING: "Server=sql-data;User=sa;Password=Pass@word;Database=dotnetgigs.applicants"
+  ConnectionString: "Server=sql-data;User=sa;Password=Pass@word;Database=dotnetgigs.applicants"
   HostRabbitmq: "rabbitmq"
 
 resources:

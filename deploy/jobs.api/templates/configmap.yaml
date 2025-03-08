@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: {{ .Chart.Name }}-config
 data:
-  CONNECTION_STRING: "{{ .Values.env.CONNECTION_STRING }}"
+  ConnectionString: "{{ .Values.env.ConnectionString }}"
   HostRabbitmq: "{{ .Values.env.HostRabbitmq }}"
