@@ -1,0 +1,24 @@
+namespace: kube-logging
+replicaCount: 1
+
+image:
+  repository: docker.elastic.co/kibana/kibana
+  tag: 8.5.0
+
+resources:
+  limits:
+    cpu: "1000m"
+  requests:
+    cpu: "100m"
+
+elasticsearch:
+  url: "http://elasticsearch:9200"
+
+service:
+  type: ClusterIP
+  protocol: TCP
+  port: 5601
+
+env:
+  SERVER_BASEPATH: "/kibana"
+  SERVER_REWRITEBASEPATH: "true"

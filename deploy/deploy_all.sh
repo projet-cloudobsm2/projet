@@ -18,4 +18,10 @@ helm upgrade --install helm-identity "$SCRIPT_DIR/identity.api"
 
 helm upgrade --install helm-applicants "$SCRIPT_DIR/applicants.api"
 
+helm upgrade --install elasticsearch  "$SCRIPT_DIR/elasticsearch"
+
+helm upgrade --install fluentd "$SCRIPT_DIR//fluentd" --namespace kube-system
+
+helm upgrade --install kibanac "$SCRIPT_DIR//kibana"
+
 sh "$SCRIPT_DIR/Nginx/install_nginx_controller.sh"

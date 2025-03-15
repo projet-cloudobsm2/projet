@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      containers:
+      - name: {{ .Chart.Name }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        resources:
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+          requests:
+            cpu: {{ .Values.resources.requests.cpu }}
+        env:
+          - name: ELASTICSEARCH_URL
+            value: {{ .Values.elasticsearch.url }}
+          - name: SERVER_BASEPATH
+            value: {{ .Values.env.SERVER_BASEPATH }}
+          - name: SERVER_REWRITEBASEPATH
+            value: "{{ .Values.env.SERVER_REWRITEBASEPATH }}"
+        ports:
+        - containerPort: {{ .Values.service.port }}
