@@ -22,3 +22,5 @@ service:
 env:
   SERVER_BASEPATH: "/kibana"
   SERVER_REWRITEBASEPATH: "true"
+  SERVER_HOSTS: "https://cloudobsm2.com:32304"
+  SERVER_PUBLICBASEURL: "https://cloudobsm2.com:32304/kibana"
