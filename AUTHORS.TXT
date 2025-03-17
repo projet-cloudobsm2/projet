@@ -1,0 +1,8 @@
+Thomas Soutif : Mise en place de l'image pour la base de données avec le déploiement helm + installation du certificat ssl dans le cluster + nginx controller et ingress pour le front et prometheus
+Lamiae Sabour : Mise en place des images services/api avec les déploiements helm + installation d'Elastic Search + mise en place de l'ingress pour kibana
+Grégoire Acquadro : Installation de prometheus et tout les métriques associés + script pour mettre tout les helms
+Marvin Escalle : Mise en place de l'image pour le front avec le déploiement helm + mise en place de toutes les règles d'affinités
+
+
+
+Plus de détails grâce à la gestion de projet : https://github.com/orgs/projet-cloudobsm2/projects/1/views/2
