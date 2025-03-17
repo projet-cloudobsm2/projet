@@ -7,6 +7,14 @@
 
 Ce script va installer les release helm nécessaires dans le cluster , vous aurez ensuite accès à l'application via le nginx.
 
+## Ajouter le host
+
+Le nginx est configuré pour utiliser le host *cloudobsm2.com*
+
+Il faut le rajouter dans le fichier ```/etc/hosts``` (sous linux) / ```C:\Windows\System32\drivers\etc\hosts``` (sous Windows)
+```bash
+ip_de_votre_cluster cloudobsm2.com
+```
 
 ## Auto signed certificate
 
