@@ -1,0 +1,13 @@
+{
+"CN": "nginx.",
+"hosts": [
+"nginx.",
+"",
+"127.0.0.1",
+"localhost"
+],
+"key": {
+"algo": "rsa",
+"size": 4096
+}
+}

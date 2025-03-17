@@ -1,0 +1,15 @@
+{
+"CN": "DevOps Machine Root CA",
+"key": {
+"algo": "rsa",
+"size": 4096
+},
+"names": [{
+"C": "FR",
+"L": "Paris",
+"O": "DevOps"
+}],
+"ca": {
+"expiry": "87600h"
+}
+}

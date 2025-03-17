@@ -10,7 +10,8 @@ data:
       pos_file /var/log/fluentd-containers.pos
       tag kubernetes.*
       format json
-      read_from_head true
+      time_key time
+      time_format %Y-%m-%dT%H:%M:%S.%NZ
     </source>
 
     <match kubernetes.**>
@@ -18,28 +19,18 @@ data:
       host {{ .Values.elasticsearch.host }}
       port {{ .Values.elasticsearch.port }}
       logstash_format true
-      logstash_prefix kubernetes-logs
+      logstash_prefix fluentd
+      logstash_dateformat %Y.%m.%d
+      include_tag_key true
       flush_interval 5s
-      type_name _doc
-      include_type_name false
     </match>
 
     <filter kubernetes.**>
       @type parser
-      key_name time
-      reserve_time true
+      key_name log
+      format json
+      time_key time
       reserve_data true
-        <parse>
-          @type json
-          time_key timestamp
-          time_format %Y-%m-%dT%H:%M:%S.%LZ
-        </parse>
-      </filter>
-      
-    <filter kubernetes.**>
-      @type record_modifier
-      <record>
-        @timestamp ${time.strftime('%Y-%m-%dT%H:%M:%S.%LZ')}
-      </record>
     </filter>
+      
 
