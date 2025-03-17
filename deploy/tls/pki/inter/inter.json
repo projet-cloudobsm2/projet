@@ -1,0 +1,10 @@
+{
+"CN": "DevOps Intermediate CA",
+"key": {
+"algo": "rsa",
+"size": 4096
+},
+"ca": {
+"expiry": "87600h"
+}
+}

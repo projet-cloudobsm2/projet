@@ -7,11 +7,17 @@ metadata:
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /kibana/$2
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - cloudobsm2.ynov.com
+    secretName: letsencrypt-prod
   rules:
-  - http:
+  - host : cloudobsm2.ynov.com
+    http:
       paths:
       - path: /kibana(/|$)(.*)
         pathType: ImplementationSpecific
