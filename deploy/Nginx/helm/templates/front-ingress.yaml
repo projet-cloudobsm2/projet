@@ -14,7 +14,7 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - *.cloudobsm2.com
+    - cloudobsm2.com
     secretName: my-tls-secret
   rules:
   - host : cloudobsm2.com
